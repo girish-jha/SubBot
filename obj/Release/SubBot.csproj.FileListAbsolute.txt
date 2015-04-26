@@ -1,0 +1,7 @@
+C:\Git\SubTitleBot\SubBot\bin\Release\FetchSubtitle.exe.config
+C:\Git\SubTitleBot\SubBot\bin\Release\FetchSubtitle.exe
+C:\Git\SubTitleBot\SubBot\bin\Release\FetchSubtitle.pdb
+C:\Git\SubTitleBot\SubBot\obj\Release\RosettaMoviesDesktop.Properties.Resources.resources
+C:\Git\SubTitleBot\SubBot\obj\Release\SubBot.csproj.GenerateResource.Cache
+C:\Git\SubTitleBot\SubBot\obj\Release\FetchSubtitle.exe
+C:\Git\SubTitleBot\SubBot\obj\Release\FetchSubtitle.pdb
