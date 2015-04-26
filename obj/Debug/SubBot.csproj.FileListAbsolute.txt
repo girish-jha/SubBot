@@ -1,8 +1,0 @@
-C:\Git\SubTitleBot\SubBot\obj\Debug\SubBot.csprojResolveAssemblyReference.cache
-C:\Git\SubTitleBot\SubBot\obj\Debug\SubBot.csproj.GenerateResource.Cache
-C:\Git\SubTitleBot\SubBot\bin\Debug\FetchSubtitle.exe.config
-C:\Git\SubTitleBot\SubBot\bin\Debug\FetchSubtitle.exe
-C:\Git\SubTitleBot\SubBot\bin\Debug\FetchSubtitle.pdb
-C:\Git\SubTitleBot\SubBot\obj\Debug\RosettaMoviesDesktop.Properties.Resources.resources
-C:\Git\SubTitleBot\SubBot\obj\Debug\FetchSubtitle.exe
-C:\Git\SubTitleBot\SubBot\obj\Debug\FetchSubtitle.pdb
