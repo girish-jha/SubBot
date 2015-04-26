@@ -4,13 +4,13 @@ using System.Text;
 
 namespace RosettaMoviesDesktop
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //System.Diagnostics.Debugger.Launch();
             var videoFilePath = args[0];

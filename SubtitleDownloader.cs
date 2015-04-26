@@ -27,9 +27,10 @@ namespace RosettaMoviesDesktop
             }
             catch (WebException e)
             {
-                MessageBox.Show("No subtitle found!", "Error", MessageBoxButtons.OK);
+                var webResponse = (HttpWebResponse)e.Response;
+                MessageBox.Show(webResponse.StatusDescription, "Error", MessageBoxButtons.OK);
             }
-            
+
             return str;
 
         }
