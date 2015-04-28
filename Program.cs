@@ -12,7 +12,6 @@ namespace RosettaMoviesDesktop
         [STAThread]
         public static void Main(string[] args)
         {
-            //System.Diagnostics.Debugger.Launch();
             var videoFilePath = args[0];
             var subtitleText = SubtitleDownloader.DownloadSubtitle(videoFilePath);
             if (string.IsNullOrWhiteSpace(subtitleText))

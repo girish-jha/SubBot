@@ -11,7 +11,7 @@ namespace RosettaMoviesDesktop
     {
         const string UriString = "http://api.thesubdb.com/";
         private const string UserAgent = "SubDB/1.0 (SubBot/0.1; http://github.com/girish-jha/SubBot)";
-
+        const string Error = "Error";
         public static string DownloadSubtitle(string filePath)
         {
             var hashKey = GenerateHashKey(filePath);
@@ -27,29 +27,56 @@ namespace RosettaMoviesDesktop
             }
             catch (WebException e)
             {
-                var webResponse = (HttpWebResponse)e.Response;
-                MessageBox.Show(webResponse.StatusDescription, "Error", MessageBoxButtons.OK);
+                var message = GetErrorMessage(e);
+
+                MessageBox.Show(message, Error, MessageBoxButtons.OK);
             }
 
             return str;
 
         }
 
+        private static string GetErrorMessage(WebException e)
+        {
+            if (e.Status == WebExceptionStatus.NameResolutionFailure)
+                return "Cannot connect to server. Please check your internet connection.";
+            var statuscode = ((HttpWebResponse) e.Response).StatusCode;
+            switch (statuscode)
+            {
+                case HttpStatusCode.Forbidden:
+                    return "Server is refusing to provide the subtitles.";
+                case HttpStatusCode.InternalServerError:
+                    return "There was some error in the server. Please try again later.";
+                case HttpStatusCode.NotFound:
+                   return "Subtitles not found!";
+                case HttpStatusCode.PreconditionFailed:
+                    return "Malformed request. Precondition failed.";
+                case HttpStatusCode.ServiceUnavailable:
+                    return "Service is temporarily unavailable.";
+                case HttpStatusCode.RequestTimeout:
+                    return "Request timed out!";
+
+                default:
+                    return "An unknown error has occured.";
+            }
+        }
+
         private static string GenerateHashKey(string filePath)
         {
             string hashKey;
+            
             try
             {
                 hashKey = File.OpenRead(filePath).GenerateHashkey();
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
-                MessageBox.Show("you do not have sufficient permission to read the file", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("you do not have sufficient permissions to read the file.", Error, MessageBoxButtons.OK);
                 return null;
             }
             catch (Exception)
             {
-                MessageBox.Show("Not a valid file for subtitles", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Not a valid file for subtitles.", Error, MessageBoxButtons.OK);
                 return null;
             }
             return hashKey;
